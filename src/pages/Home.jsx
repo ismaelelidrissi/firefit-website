@@ -101,7 +101,7 @@ const Home = () => {
           {/* Right Side - Image */}
           <div className="hidden lg:block relative overflow-hidden bg-gradient-to-br from-slate-200 via-blue-200 to-blue-400">
             <img 
-              src="/public/hero-gym1.jpg" 
+              src="/hero-gym.jpg" 
               alt="Fire Fit Gym Interior" 
               className="absolute inset-0 w-full h-full object-cover"
             />
