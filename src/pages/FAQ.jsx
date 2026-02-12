@@ -207,7 +207,7 @@ const FAQ = () => {
                         <span className="text-lg font-bold text-slate-900 pr-4">
                           {faq.q}
                         </span>
-                        <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-fire-blue flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
+                        <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-fire-blue flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-90' : ''}`}>
                           {isOpen ? (
                             <ChevronUp className="w-5 h-5 text-white" />
                           ) : (
