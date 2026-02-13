@@ -9,6 +9,7 @@ export const gymData = {
   owner: {
     name: 'Ibtissam',
     role: 'Propriétaire & Nutritionniste',
+    image: '👩‍💼',
     bio: 'Passionnée par la nutrition sportive et le bien-être, Ibtissam a fondé Fire Fit avec la vision de créer un espace où chaque personne peut transformer sa vie. Avec plus de 10 ans d\'expérience en nutrition et coaching, elle accompagne personnellement les membres dans leur parcours de transformation.',
     specialties: ['Nutrition Sportive', 'Coaching Personnalisé', 'Motivation'],
     instagram: '@ibtissamdiet'
@@ -18,7 +19,9 @@ export const gymData = {
     {
       name: 'Hicham',
       role: 'Coach Principal',
-     specialties: ['Musculation', 'Force Athlétique', 'Technique'],
+      gender: 'male',
+      image: '💪',
+      specialties: ['Musculation', 'Force Athlétique', 'Technique'],
       certifications: [
         'Certificat de coaching sportif niveau 1',
         'Formation en fitness avancée'
@@ -26,15 +29,26 @@ export const gymData = {
       instagram: '@hicham_of_down'
     },
     {
-      name: 'Zaari',
+      name: 'Zakaria',
       role: 'Coach Fitness',
-
+      gender: 'male',
       specialties: ['Cardio Training', 'HIIT', 'Endurance'],
       certifications: [
         'Certificat de fitness professionnel',
         'Formation en cardio training'
       ],
       instagram: '@coach_zaari'
+    },
+    {
+      name: 'Aicha',
+      role: 'Coach Fitness',
+      gender: 'female',
+      specialties: ['Yoga', 'Pilates'],
+      certifications: [
+        'Certificat de fitness professionnel',
+        'Formation en yoga training'
+      ],
+      instagram: '@aicha_fitness'
     }
   ],
 

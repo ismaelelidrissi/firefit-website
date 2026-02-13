@@ -44,7 +44,7 @@ const Contact = () => {
       lines: gymData.contactInfo.phones,
       link: `tel:${gymData.contactInfo.phones[0]}`,
       linkText: 'Appeler maintenant',
-      color: 'green'
+      color: 'blue'
     },
     {
       icon: Instagram,
@@ -55,7 +55,7 @@ const Contact = () => {
       ],
       link: gymData.contactInfo.instagram.url,
       linkText: 'Suivre sur Instagram',
-      color: 'purple'
+      color: 'blue'
     }
   ];
 
