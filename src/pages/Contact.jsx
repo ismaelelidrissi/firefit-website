@@ -60,16 +60,24 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white pt-20">
+    <div className="min-h-screen bg-white pt-3">
+
       {/* Header */}
-      <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6">
+            <section className="relative pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+        {/* Effet de fond */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-fire-orange rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-fire-blue rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl md:text-7xl font-black text-white mb-4">
             CONTACTEZ-NOUS
           </h1>
-          <div className="w-32 h-1.5 bg-fire-orange mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-32 h-2 bg-fire-orange mx-auto mb-6"></div>
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Nous sommes là pour répondre à toutes vos questions et vous aider à démarrer votre transformation
+
           </p>
         </div>
       </section>

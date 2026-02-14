@@ -50,16 +50,16 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section - Image background sur mobile, split screen sur desktop */}
+      {/* Hero Section  */}
       <section className="pt-20">
         <div className="min-h-[calc(100vh-5rem)] grid lg:grid-cols-2">
-          {/* Left Side - Content avec background mobile */}
+          {/* Left Side*/}
           <div className="relative flex items-center justify-center px-6 lg:px-12 py-16 lg:py-0 bg-gradient-to-br from-gray-50 to-white">
             
             {/* Image de fond SEULEMENT sur mobile */}
             <div className="absolute inset-0 lg:hidden">
               <img 
-                src="/hero-gym.jpg" 
+                src="/hero-gym2.jpg" 
                 alt="Fire Fit Gym" 
                 className="w-full h-full object-cover"
               />
@@ -71,14 +71,14 @@ const Home = () => {
             <div className="relative z-10 max-w-xl space-y-6">
               
               {/* Titre avec flou */}
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+              <h1 className="text-7xl md:text-6xl font-bold italic leading-tight">
                 <span className="text-blur-bg inline-block text-fire-orange">FIRE</span>
                 <br />
                 <span className="text-blur-bg inline-block text-white lg:text-slate-900">FIT</span>
                 <br />
                 <span className="text-blur-bg inline-block text-fire-blue">CLUB</span>
               </h1>
-              
+              <br /><br />
               {/* Sous-titre avec flou */}
               <h2 className="text-blur-bg inline-block text-lg md:text-2xl font-semibold text-white lg:text-slate-700">
                 CENTRE DE REMISE EN FORME PREMIUM

@@ -1,4 +1,5 @@
 export const gymData = {
+  
   stats: [
     { number: '6+', label: 'Années d\'Expérience' },
     { number: '500+', label: 'Membres Actifs' },
@@ -55,12 +56,12 @@ export const gymData = {
   schedule: [
     { 
       day: 'Lundi - Vendredi',
-      hours: '06h00 - 22h30',
+      hours: '07h00 - 22h30',
       status: 'Ouvert'
     },
     { 
       day: 'Samedi',
-      hours: '10h00 - 18h00',
+      hours: '9h00 - 18h00',
       status: 'Ouvert'
     },
     { 
@@ -72,13 +73,13 @@ export const gymData = {
 
   peakHours: {
     calm: [
-      '10h - 12h (matinée)',
+      '07h00 - 12h (matinée)',
       '14h - 16h (après-midi)',
       '21h - 22h (soirée)'
     ],
     peak: [
       '17h - 21h (fin de journée)',
-      '8h - 10h (matin)'
+      '12h - 14h (matin)'
     ]
   },
 

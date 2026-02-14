@@ -1,14 +1,28 @@
 import { useState } from 'react';
-import { ShoppingCart, Star, Heart, ArrowRight, Filter, Instagram } from 'lucide-react';
+import { ShoppingCart, Star, Heart, ArrowRight, Filter, Instagram, Shirt, Wind, Zap, Flame, X } from 'lucide-react';
 
 const Products = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false); 
+
+  const openModal = (product) => {
+  setSelectedProduct(product);
+  setShowModal(true);
+  setTimeout(() => setIsModalOpen(true), 10);
+};
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedProduct(null), 500);
+  };
 
   const categories = [
-    { id: 'all', name: 'Tous les produits', icon: '🔥' },
-    { id: 'tshirts', name: 'T-Shirts', icon: '👕' },
-    { id: 'hoodies', name: 'Hoodies', icon: '🧥' },
-    { id: 'accessories', name: 'Accessoires', icon: '🎯' }
+    { id: 'all', name: 'Tous les produits', icon: Flame },
+    { id: 'tshirts', name: 'T-Shirts', icon: Shirt },
+    { id: 'hoodies', name: 'Hoodies', icon: Wind },
+    { id: 'accessories', name: 'Accessoires', icon: Zap }
   ];
 
   const products = [
@@ -19,7 +33,7 @@ const Products = () => {
       name: 'T-Shirt Fire Fit Classic',
       description: 'T-shirt en coton premium avec logo Fire Fit brodé',
       price: '150 DHS',
-      image: '/products/tshirt-classic.jpg',
+      image: '/products/tshirt-classic.png',
       colors: ['Noir', 'Blanc', 'Bleu', 'Orange'],
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       rating: 5,
@@ -31,7 +45,7 @@ const Products = () => {
       name: 'T-Shirt Performance',
       description: 'Tissu respirant anti-transpiration pour entraînement intense',
       price: '180 DHS',
-      image: '/products/tshirt-performance.jpg',
+      image: '/products/tshirt-performance.png',
       colors: ['Noir', 'Gris', 'Bleu'],
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       rating: 5,
@@ -43,7 +57,7 @@ const Products = () => {
       name: 'T-Shirt Femme Fire Fit',
       description: 'Coupe ajustée confortable pour femme',
       price: '160 DHS',
-      image: '/products/tshirt-femme.jpg',
+      image: '/products/tshirt-femme.png',
       colors: ['Rose', 'Noir', 'Blanc', 'Violet'],
       sizes: ['XS', 'S', 'M', 'L', 'XL'],
       rating: 5,
@@ -57,7 +71,7 @@ const Products = () => {
       name: 'Hoodie Fire Fit Premium',
       description: 'Sweat à capuche épais, parfait pour l\'hiver',
       price: '350 DHS',
-      image: '/products/hoodie-premium.jpg',
+      image: '/products/hoodie-premium.png',
       colors: ['Noir', 'Gris', 'Bleu Marine'],
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       rating: 5,
@@ -69,7 +83,7 @@ const Products = () => {
       name: 'Hoodie Zip Fire Fit',
       description: 'Hoodie zippé avec poches kangourou',
       price: '380 DHS',
-      image: '/products/hoodie-zip.jpg',
+      image: '/products/hoodie-zip.png',
       colors: ['Noir', 'Gris', 'Orange'],
       sizes: ['S', 'M', 'L', 'XL', 'XXL'],
       rating: 5,
@@ -81,7 +95,7 @@ const Products = () => {
       name: 'Hoodie Femme Fire Fit',
       description: 'Hoodie confortable coupe femme',
       price: '360 DHS',
-      image: '/products/hoodie-femme.jpg',
+      image: '/products/hoodie-femme.png',
       colors: ['Rose', 'Noir', 'Gris'],
       sizes: ['XS', 'S', 'M', 'L', 'XL'],
       rating: 5,
@@ -95,7 +109,7 @@ const Products = () => {
       name: 'Gourde Fire Fit',
       description: 'Bouteille isotherme 750ml en acier inoxydable',
       price: '120 DHS',
-      image: '/products/gourde.jpg',
+      image: '/products/gourde.png',
       colors: ['Noir', 'Bleu', 'Orange'],
       sizes: ['750ml'],
       rating: 5,
@@ -107,7 +121,7 @@ const Products = () => {
       name: 'Shaker Protéine Fire Fit',
       description: 'Shaker 600ml avec compartiment à poudre',
       price: '80 DHS',
-      image: '/products/shaker.jpg',
+      image: '/products/shaker.png',
       colors: ['Noir', 'Transparent'],
       sizes: ['600ml'],
       rating: 4,
@@ -119,7 +133,7 @@ const Products = () => {
       name: 'Serviette Fire Fit',
       description: 'Serviette microfibre ultra-absorbante',
       price: '100 DHS',
-      image: '/products/serviette.jpg',
+      image: '/products/serviette.png',
       colors: ['Noir', 'Bleu', 'Orange'],
       sizes: ['80x40cm'],
       rating: 5,
@@ -131,7 +145,7 @@ const Products = () => {
       name: 'Casquette Fire Fit',
       description: 'Casquette ajustable avec logo brodé',
       price: '90 DHS',
-      image: '/products/casquette.jpg',
+      image: '/products/casquette.png',
       colors: ['Noir', 'Bleu', 'Blanc'],
       sizes: ['Unique'],
       rating: 5,
@@ -143,7 +157,7 @@ const Products = () => {
       name: 'Sac de Sport Fire Fit',
       description: 'Sac de sport 40L avec compartiments multiples',
       price: '250 DHS',
-      image: '/products/sac-sport.jpg',
+      image: '/products/sac-sport.png',
       colors: ['Noir', 'Gris'],
       sizes: ['40L'],
       rating: 5,
@@ -152,10 +166,10 @@ const Products = () => {
     {
       id: 12,
       category: 'accessories',
-      name: 'Bracelet Fire Fit',
-      description: 'Bracelet en silicone avec logo Fire Fit',
+      name: 'Tasse Fire Fit',
+      description: 'Tasse en ciramique avec logo Fire Fit',
       price: '30 DHS',
-      image: '/products/bracelet.jpg',
+      image: '/products/tasse.png',
       colors: ['Noir', 'Orange', 'Bleu'],
       sizes: ['Unique'],
       rating: 4,
@@ -168,22 +182,32 @@ const Products = () => {
     : products.filter(p => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-white pt-20">
+    <div className="min-h-screen bg-white pt-3">
+
+
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-600 to-blue-800 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+      <section className="relative pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+        {/* Effet de fond */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-fire-orange rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-fire-blue rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl md:text-7xl font-black text-white mb-4">
             BOUTIQUE FIRE FIT
           </h1>
-          <div className="w-32 h-1.5 bg-fire-orange mx-auto mb-8"></div>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-32 h-2 bg-fire-orange mx-auto mb-6"></div>
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Découvrez notre collection exclusive de vêtements et accessoires Fire Fit
+
           </p>
         </div>
       </section>
 
+
       {/* Categories Filter */}
-      <section className="sticky top-20 bg-white border-b border-gray-200 shadow-sm z-40">
+      <section className="top-[124px] bg-white border-b border-gray-200 shadow-sm z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between mb-4 md:mb-0">
             <div className="flex items-center space-x-2 text-gray-600">
@@ -192,20 +216,23 @@ const Products = () => {
             </div>
           </div>
           <div className="flex flex-wrap gap-3 mt-4">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-6 py-3 rounded-xl font-bold transition-all duration-300 hover:scale-105 flex items-center space-x-2
-                  ${selectedCategory === cat.id
-                    ? 'bg-fire-blue text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                  }`}
-              >
-                <span className="text-xl">{cat.icon}</span>
-                <span>{cat.name}</span>
-              </button>
-            ))}
+            {categories.map((cat) => {
+              const IconComponent = cat.icon;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setSelectedCategory(cat.id)}
+                  className={`px-6 py-3 rounded-xl font-bold transition-all duration-300 hover:scale-105 flex items-center space-x-2
+                    ${selectedCategory === cat.id
+                      ? 'bg-fire-blue text-white shadow-lg'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                >
+                  <IconComponent className="w-5 h-5" />
+                  <span>{cat.name}</span>
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -224,13 +251,17 @@ const Products = () => {
               <div
                 key={product.id}
                 className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                onClick={() => openModal(product)}
               >
                 {/* Product Image */}
-                <div className="relative h-64 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                <div 
+                  className="relative h-64 bg-white overflow-hidden cursor-pointer flex items-center justify-center"
+                  
+                >
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500"
                     onError={(e) => {
                       e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="400" height="400" fill="%23e5e7eb"/><text x="50%" y="50%" font-size="60" fill="%239ca3af" text-anchor="middle" dy=".3em">Fire Fit</text></svg>';
                     }}
@@ -346,7 +377,7 @@ const Products = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-800">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-blue-600 to-blue-800">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Instagram className="w-16 h-16 text-fire-orange mx-auto mb-6" />
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -376,6 +407,122 @@ const Products = () => {
           </div>
         </div>
       </section>
+
+      {/* Modal Popup */}
+      {showModal && selectedProduct && (
+        <div 
+          className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-all duration-300 ease-out ${
+            isModalOpen ? 'opacity-100' : 'opacity-0'
+          }`}
+          onClick={closeModal}
+        >
+          <div 
+            className={`relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl transform transition-all duration-500 ease-out ${
+              isModalOpen ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-8'
+            }`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={closeModal}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            <div className="grid md:grid-cols-2">
+              {/* Image */}
+              <div className="relative h-96 md:h-auto bg-white flex items-center justify-center">
+                <img
+                  src={selectedProduct.image}
+                  alt={selectedProduct.name}
+                  className="w-full h-full object-contain p-8"
+                  onError={(e) => {
+                    e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800"><rect width="800" height="800" fill="%23e5e7eb"/><text x="50%" y="50%" font-size="100" fill="%239ca3af" text-anchor="middle" dy=".3em">Fire Fit</text></svg>';
+                  }}
+                />
+              </div>
+
+              {/* Info */}
+              <div className="p-8">
+                <h2 className="text-3xl font-black text-slate-900 mb-4">
+                  {selectedProduct.name}
+                </h2>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {selectedProduct.description}
+                </p>
+
+                {/* Rating */}
+                <div className="flex items-center mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-5 h-5 ${
+                        i < selectedProduct.rating
+                          ? 'text-fire-orange fill-fire-orange'
+                          : 'text-gray-300'
+                      }`}
+                    />
+                  ))}
+                  <span className="ml-2 text-sm font-bold text-gray-600">({selectedProduct.rating}.0)</span>
+                </div>
+
+                {/* Price */}
+                <div className="mb-6">
+                  <p className="text-sm text-gray-500 mb-1">Prix</p>
+                  <p className="text-4xl font-black text-fire-orange">{selectedProduct.price}</p>
+                </div>
+
+                {/* Colors */}
+                <div className="mb-6">
+                  <p className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">
+                    Couleurs disponibles
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProduct.colors.map((color, idx) => (
+                      <span
+                        key={idx}
+                        className="px-4 py-2 bg-gray-100 text-sm text-gray-800 rounded-xl font-semibold border border-gray-200 hover:border-fire-orange transition-colors cursor-pointer"
+                      >
+                        {color}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Sizes */}
+                <div className="mb-6">
+                  <p className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wider">
+                    Tailles disponibles
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProduct.sizes.map((size, idx) => (
+                      <span
+                        key={idx}
+                        className="px-4 py-2 bg-gray-100 text-sm text-gray-800 rounded-xl font-semibold border border-gray-200 hover:border-fire-orange transition-colors cursor-pointer"
+                      >
+                        {size}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="flex gap-3">
+                  <a
+                    href="https://instagram.com/firefit.ma"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-6 py-4 rounded-xl font-bold text-center transition-all hover:scale-105"
+                  >
+                    Commander sur Instagram
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { gymData } from '../data/gymData';
 
 const Team = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-3">
       {/* Header Hero */}
       <section className="relative pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
         {/* Effet de fond */}
@@ -130,7 +130,7 @@ const Team = () => {
                   {/* Photo */}
                   <div className="relative h-80 bg-gradient-to-br from-blue-100 to-blue-50 overflow-hidden">
                     <img 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500" 
                       src={`/team/coach-${index + 1}.png`}
                       alt={coach.name}
                       onError={(e) => {

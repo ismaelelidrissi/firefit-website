@@ -1,5 +1,7 @@
 import { Award, Users, Heart, Target, Dumbbell, Zap, Crosshair, User, Apple, Sparkles, Star } from 'lucide-react';
 import { gymData } from '../data/gymData';
+import ImageSlider from '../components/ImageSlider';
+
 
 const About = () => {
   const values = [
@@ -95,17 +97,22 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white pt-20">
+    <div className="min-h-screen bg-white pt-3">
       {/* Header */}
-      <section className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-slate-900 mb-6">
+      <section className="relative pt-24 pb-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+        {/* Effet de fond */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-fire-orange rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-fire-blue rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl md:text-7xl font-black text-white mb-4">
             À PROPOS DE FIRE FIT
           </h1>
-          <div className="w-32 h-1.5 bg-fire-orange mx-auto"></div>
+          <div className="w-32 h-2 bg-fire-orange mx-auto mb-6"></div>
         </div>
       </section>
-
       {/* Mission Section */}
       <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -125,14 +132,7 @@ const About = () => {
                 Notre centre premium combine équipements de dernière génération, coachs certifiés et une communauté bienveillante pour vous offrir l'expérience fitness ultime. Rejoignez les 500+ membres qui transforment leur vie chaque jour chez Fire Fit.
               </p>
             </div>
-
-            {/* Visual Column */}
-            <div className="relative">
-              <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl p-16 flex items-center justify-center shadow-2xl">
-                <Award className="w-48 h-48 text-white/90" strokeWidth={1.5} />
-              </div>
-              <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-fire-orange/20 rounded-3xl -z-10"></div>
-            </div>
+          <ImageSlider />
           </div>
         </div>
       </section>
@@ -188,7 +188,7 @@ const About = () => {
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="text-gray-700 text-sm flex items-start space-x-2">
-                      <span className="text-fire-orange mt-1">•</span>
+                      <span className="text-fire-orange">•</span>
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -229,26 +229,6 @@ const About = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl shadow-xl border border-gray-200 p-12">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {gymData.stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-5xl md:text-6xl font-bold text-fire-blue mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-gray-600 font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
