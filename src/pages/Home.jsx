@@ -51,9 +51,9 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section  */}
-      <section className="pt-20">
+      <section className="pt-6">
         <div className="min-h-[calc(100vh-5rem)] grid lg:grid-cols-2">
-          {/* Left Side*/}
+          {/* Left Side - Content avec background mobile */}
           <div className="relative flex items-center justify-center px-6 lg:px-12 py-16 lg:py-0 bg-gradient-to-br from-gray-50 to-white">
             
             {/* Image de fond SEULEMENT sur mobile */}
@@ -68,7 +68,7 @@ const Home = () => {
             </div>
 
             {/* Contenu texte avec flou derrière */}
-            <div className="relative z-10 max-w-xl space-y-6">
+            <div className="relative z-10 max-w-xl space-y-8">
               
               {/* Titre avec flou */}
               <h1 className="text-7xl md:text-6xl font-bold italic leading-tight">
@@ -90,7 +90,7 @@ const Home = () => {
               </p>
               
               {/* Boutons */}
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row gap-3 pt-4">
                 <Link
                   to="/pricing"
                   className="group inline-flex items-center justify-center space-x-2 bg-fire-orange hover:bg-orange-600 text-white px-6 py-3 rounded-xl font-bold text-base transition-all duration-300 hover:scale-105 hover:shadow-xl"
@@ -215,22 +215,22 @@ const Home = () => {
 
 
 
-      {/* Offre Spéciale Section - NOUVELLE */}
-      <section className="py-12 md:py-16 bg-gradient-to-br from-slate-900 to-slate-800">
+      {/* Offre Spéciale Section - MOBILE UNIQUEMENT */}
+      <section className="block lg:hidden py-12 md:py-16 bg-gradient-to-br from-slate-900 to-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Titre */}
           <div className="text-center mb-10">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4">
               OFFRE SPÉCIALE
             </h2>
             <div className="w-32 h-2 bg-gradient-to-r from-transparent via-fire-orange to-transparent mx-auto mb-4"></div>
-            <p className="text-xl text-gray-300 font-semibold">
+            <p className="text-lg md:text-xl text-gray-300 font-semibold">
               Rejoignez-nous dès aujourd'hui !
             </p>
           </div>
 
           {/* Image promotionnelle */}
-          <div className="max-w-2xl mx-auto">
+          <div className="w-full mx-auto">
             <Link 
               to="/contact"
               className="group relative block overflow-hidden rounded-3xl shadow-2xl hover:shadow-fire-orange/50 transition-all duration-500 hover:scale-105"
@@ -239,44 +239,23 @@ const Home = () => {
               <div className="absolute -inset-2 bg-gradient-to-r from-fire-orange via-orange-600 to-fire-orange rounded-3xl blur-2xl opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
               
               {/* Image */}
-              <div className="relative">
+              <div className="relative px-6">
                 <img 
                   src="/promo-firefit.jpg" 
                   alt="Offre Fire Fit - 150 MAD/mois ou 1200 MAD/an"
                   className="w-full h-auto rounded-3xl"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = `
-                      <div class="bg-gradient-to-br from-orange-500 to-red-600 aspect-[9/16] rounded-3xl flex items-center justify-center text-white p-8">
-                        <div class="text-center">
-                          <h3 class="text-4xl font-black mb-6">OFFRES FIRE FIT</h3>
-                          <div class="space-y-4 mb-8">
-                            <div class="bg-blue-600 px-6 py-4 rounded-xl">
-                              <span class="text-5xl font-black">150 MAD</span>
-                              <span class="text-2xl ml-2">/ 1 MOIS</span>
-                            </div>
-                            <div class="bg-yellow-500 px-6 py-4 rounded-xl">
-                              <span class="text-5xl font-black">1200 MAD</span>
-                              <span class="text-2xl ml-2">/ 1 AN</span>
-                            </div>
-                          </div>
-                          <p class="text-sm uppercase tracking-wider">Sans frais d'inscription</p>
-                        </div>
-                      </div>
-                    `;
-                  }}
                 />
                 
                 {/* Badge "Cliquez pour vous inscrire" */}
-                <div className="absolute top-4 right-4 bg-fire-orange text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse">
+                <div className="absolute top-2 right-8 md:top-4 md:right-4 bg-fire-orange text-white px-6 py-1.5 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-bold shadow-lg animate-pulse">
                   Cliquez ici !
                 </div>
 
                 {/* Overlay au hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-fire-orange/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-3xl flex items-end justify-center pb-8">
                   <div className="text-white text-center">
-                    <p className="text-2xl font-black mb-2">S'INSCRIRE MAINTENANT</p>
-                    <p className="text-sm">Cliquez pour nous contacter →</p>
+                    <p className="text-xl md:text-2xl font-black mb-2">S'INSCRIRE MAINTENANT</p>
+                    <p className="text-xs md:text-sm">Cliquez pour nous contacter →</p>
                   </div>
                 </div>
               </div>

@@ -169,13 +169,13 @@ const Team = () => {
                     {/* Certifications */}
                     <div className="mb-6">
                       <h4 className="flex items-center space-x-2 text-xs font-black text-gray-900 mb-3 uppercase tracking-wider">
-                        <Award className="w-4 h-4 text-fire-orange" />
+                        <Award className="w-4 h-4 text-fire-blue" />
                         <span>Certifications</span>
                       </h4>
                       <ul className="space-y-2">
                         {coach.certifications.map((cert, idx) => (
                           <li key={idx} className="flex items-start space-x-2 text-gray-700 text-sm">
-                            <span className="text-fire-orange font-bold ">•</span>
+                            <span className="text-fire-blue font-bold ">•</span>
                             <span>{cert}</span>
                           </li>
                         ))}
